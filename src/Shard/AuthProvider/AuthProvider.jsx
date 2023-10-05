@@ -27,17 +27,17 @@ const AuthProvider = ({ children }) => {
 
     const googleLogin = () =>{
         setLoading(true)
-        signInWithPopup(auth, provider)
+       return signInWithPopup(auth, provider)
     }
 
     const githubLogin = () =>{
         setLoading(true)
-        signInWithPopup(auth, providerGithub)
+        return signInWithPopup(auth, providerGithub)
     }
 
     const twiteerLogin = () =>{
         setLoading(true)
-        signInWithPopup(auth, providerTwiteer)
+        return signInWithPopup(auth, providerTwiteer)
     }
 
 
