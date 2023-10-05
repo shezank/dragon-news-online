@@ -13,20 +13,28 @@ import Register from './Pages/Register/Register';
 import AuthProvider from './Shard/AuthProvider/AuthProvider';
 import NewsDetails from './Pages/NewsDetails/NewsDetails';
 import PrivateRoute from './Shard/PrivateRoute/PrivateRoute';
+import ErrorPage from './Pages/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
-        loader: ()=> fetch('news.json') 
+        loader: ()=> fetch('/news.json') 
+      },
+      {
+        path: "/catagory/:id",
+        element: <Home></Home>
       },
       {
         path: "/news/:id",
-        element: <PrivateRoute><NewsDetails></NewsDetails></PrivateRoute>
+        element: <PrivateRoute><NewsDetails></NewsDetails></PrivateRoute>,
+        loader: ()=> fetch("/news.json")
+
       },
       {
         path: "/login",

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 
 
-const LeftSide = () => {
+
+const LeftSide = ({handleCatagoryId}) => {
     const [catagorys, setCatagorys] = useState([]);
 
     useEffect(()=>{
@@ -15,7 +15,7 @@ const LeftSide = () => {
         <div className="space-y-7">
             <h1 className="font-semibold">All Caterogy</h1>
             {
-                catagorys.map( catagory => <li className="list-none font-semibold pl-10" key={catagory.id}><NavLink to={`/catagory/${catagory.id}`} >{catagory.name}</NavLink></li>)
+                catagorys.map( catagory => <li className="list-none font-semibold pl-10" key={catagory.id}> <button onClick={()=>handleCatagoryId(catagory.id)}>{catagory.name}</button></li>)
             }
 
         </div>
